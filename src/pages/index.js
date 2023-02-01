@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <>
     <Head>
-      <title>Renatta's Page</title>
+      <title>Renatta Page</title>
     </Head>
-    <h1>Renatta's Page</h1>
+    <h1>Renatta Page</h1>
     <p>
       This is a sample page for Renatta.
     </p>
