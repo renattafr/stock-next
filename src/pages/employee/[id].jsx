@@ -13,8 +13,8 @@ export default function EmployeePage(props) {
       </Head>
       <h1>{employee.first_name + " " + employee.last_name}</h1>
       <div>
-        <p>${employee.job_title}</p>
-        <p>${employee.salary}</p>
+        <p>{employee.job_title}</p>
+        <p>{employee.salary}</p>
       </div>
       <Link href="/employee">Back to Employee List</Link>
     </>
