@@ -1,5 +1,5 @@
-import {connect, model, models, Schema} from "mongoose"
-const connectionString = 'mongodb+srv://user1:pOOXuBeaHNTPu6GG@cluster0.hrlslbz.mongodb.net/stock'
+import { connect, model, models, Schema } from "mongoose";
+const connectionString = process.env.MONGODB_URI;
 
 export default async function handler(req, res) {
   await connect(connectionString);
@@ -9,10 +9,10 @@ export default async function handler(req, res) {
       const docs = await Product.find()
       res.status(200).json(docs)
   } else if (req.method === 'POST') {
-      // console.log(req.body)
-      res.status(200).json(req.body)
+      console.log(typeof(req.body))
+      // res.status(200).json(req.body)
       const doc = await Product.create(req.body)
-      // res.status(201).json(doc)
+      res.status(201).json(doc)
   } else {
       res.setHeader('Allow', ['GET', 'POST'])
       res.status(405).end(`Method ${req.method} Not Allowed`)
@@ -28,4 +28,11 @@ const productSchema = new Schema({
 });
 
 console.log("Mongoose Models", models)
-const Product = models?.products || model('products', productSchema);
+const Product = models?.product || model('product', productSchema);
+
+
+
+
+
+
+
